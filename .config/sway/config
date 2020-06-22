@@ -36,6 +36,9 @@ set $gnomeschema org.gnome.desktop.interface
 # Set linemenu
 set $linemenu dmenu_path | dmenu | xargs swaymsg exec --
 
+# Set shut down, restart and locking features
+set $mode_system (l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown
+
 ### Settings ###
 
 # Font
@@ -129,21 +132,21 @@ bindsym --to-code $mod+Return exec $term
 bindsym --to-code $mod+q kill
 
 # Start your launcher
-bindsym --to-code $mod+m exec $menu
+bindsym --to-code $mod+d exec $menu
 
 bindsym $mod+b exec $term -e 'bmenu'
 
 # Launch categorized menu
-bindsym --to-code $mod+d exec --no-startup-id morc_menu
+bindsym --to-code $mod+a exec --no-startup-id morc_menu
 
 # Start browser
-bindsym --to-code $mod+1 exec $browser
+bindsym --to-code $mod+w exec $browser
 
 # Start file manager
-bindsym --to-code $mod+2 exec $filer
+bindsym --to-code $mod+e exec $filer
 
 # Lock screen
-bindsym --to-code $mod+0 exec swaylock-fancy -p
+# bindsym --to-code $mod+9 exec swaylock-fancy -p
 
 # Take a screenshot (whole screen)
 bindsym --to-code Print exec grim ~/Pictures/screenshots/screenshot-"$(date +%s)".png
@@ -179,22 +182,22 @@ bindsym --to-code $mod+Shift+Up move up
 bindsym --to-code $mod+Shift+Right move right
 
 # Switch to workspace
-bindsym --to-code $mod+F1 workspace $ws1
-bindsym --to-code $mod+F2 workspace $ws2
-bindsym --to-code $mod+F3 workspace $ws3
-bindsym --to-code $mod+F4 workspace $ws4
-bindsym --to-code $mod+F5 workspace $ws5
-bindsym --to-code $mod+F6 workspace $ws6
-bindsym --to-code $mod+F7 workspace $ws7
+bindsym --to-code $mod+1 workspace $ws1
+bindsym --to-code $mod+2 workspace $ws2
+bindsym --to-code $mod+3 workspace $ws3
+bindsym --to-code $mod+4 workspace $ws4
+bindsym --to-code $mod+5 workspace $ws5
+bindsym --to-code $mod+6 workspace $ws6
+bindsym --to-code $mod+7 workspace $ws7
 
 # Move focused container to workspace
-bindsym --to-code $mod+Shift+F1 move container to workspace $ws1
-bindsym --to-code $mod+Shift+F2 move container to workspace $ws2
-bindsym --to-code $mod+Shift+F3 move container to workspace $ws3
-bindsym --to-code $mod+Shift+F4 move container to workspace $ws4
-bindsym --to-code $mod+Shift+F5 move container to workspace $ws5
-bindsym --to-code $mod+Shift+F6 move container to workspace $ws6
-bindsym --to-code $mod+Shift+F7 move container to workspace $ws7
+bindsym --to-code $mod+Shift+1 move container to workspace $ws1
+bindsym --to-code $mod+Shift+2 move container to workspace $ws2
+bindsym --to-code $mod+Shift+3 move container to workspace $ws3
+bindsym --to-code $mod+Shift+4 move container to workspace $ws4
+bindsym --to-code $mod+Shift+5 move container to workspace $ws5
+bindsym --to-code $mod+Shift+6 move container to workspace $ws6
+bindsym --to-code $mod+Shift+7 move container to workspace $ws7
 
 # Sreen brightness controls
 bindsym --to-code XF86MonBrightnessUp exec brightnessctl -q set +2% # increase screen brightness
@@ -222,21 +225,21 @@ bindsym --to-code --to-code $mod+c splith
 bindsym --to-code --to-code $mod+v splitv
 
 # Switch the current container between different layout styles
-bindsym --to-code $mod+s layout stacking
-bindsym --to-code $mod+w layout tabbed
-bindsym --to-code $mod+e layout toggle split
+bindsym --to-code $mod+F3 layout stacking
+bindsym --to-code $mod+F2 layout tabbed
+bindsym --to-code $mod+F1 layout toggle split
 
 # Make the current focus fullscreen
 bindsym --to-code $mod+f fullscreen
 
 # Toggle the current focus between tiling and floating mode
-bindsym --to-code $mod+Shift+space floating toggle
+bindsym --to-code $mod+space floating toggle
 
 # Swap focus between the tiling area and the floating area
-bindsym --to-code $mod+space focus mode_toggle
+bindsym --to-code $mod+Shift+space focus mode_toggle
 
 # Move focus to the parent container
-bindsym --to-code $mod+a focus parent
+bindsym --to-code $mod+m focus parent
 
 # Scratchpad:
 
@@ -282,6 +285,20 @@ bindsym --to-code $mod+Shift+e exec swaynag -t warning -m \
     -b 'Reboot' 'systemctl reboot' \
     -b 'Poweroff' 'systemctl poweroff'
 
+# Set shut down, restart and locking features
+bindsym $mod+0 mode "$mode_system"
+mode "$mode_system" {
+    bindsym l exec --no-startup-id swaylock-fancy -p, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym e exec --no-startup-id swaymsg exit, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
+
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
 ### Status bar ###
 
 bar {
@@ -291,6 +308,7 @@ bar {
 ### Autostart ###
 
 exec mako
+exec redshift
 exec_always --no-startup-id pulseaudio --daemon
 exec --no-startup-id xfce4-power-manager
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1

@@ -2,9 +2,10 @@
     "layer": "top",
     "position": "top",
     "height": 24,
-    "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
-    "modules-center": [],
+    "modules-left": ["sway/workspaces", "sway/window"],
+    "modules-center": ["sway/mode"],
     "modules-right": ["custom/keyboard-layout", "pulseaudio", "network", "memory", "battery", "clock#time", "clock#date", "tray"],
+    
     "sway/window": {
         "max-length": 50
     },
@@ -24,7 +25,7 @@
     },
 
     "sway/mode": {
-	    "format": "<span style=\"italic\">{}</span>"
+	    "format": "System menu: <span style=\"italic\">{}</span>"
     },
 
     "network": {

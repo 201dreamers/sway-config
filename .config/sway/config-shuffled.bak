@@ -134,21 +134,19 @@ assign [app_id="opera"] workspace 1
 # exit i3 (logs you out of your X session)
 #bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 # Set shut down, restart and locking features
-# bindsym $mod+0 mode "$mode_system"
-# set $mode_system (l)ock, (e)xit, switch_(u)ser, (s)uspend, (h)ibernate, (r)eboot, (Shift+s)hutdown
-# mode "$mode_system" {
-#     bindsym l exec --no-startup-id i3exit lock, mode "default"
-#     bindsym s exec --no-startup-id i3exit suspend, mode "default"
-#     bindsym u exec --no-startup-id i3exit switch_user, mode "default"
-#     bindsym e exec --no-startup-id i3exit logout, mode "default"
-#     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
-#     bindsym r exec --no-startup-id i3exit reboot, mode "default"
-#     bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+bindsym $mod+9 mode "$mode_system"
+set $mode_system (l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown
+mode "$mode_system" {
+    bindsym l exec --no-startup-id swaylock-fancy -p, mode "default"
+    bindsym s exec --no-startup-id systemctl suspend, mode "default"
+    bindsym e exec --no-startup-id swaymsg exit, mode "default"
+    bindsym r exec --no-startup-id systemctl reboot, mode "default"
+    bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
 
-#     # exit system mode: "Enter" or "Escape"
-#     bindsym Return mode "default"
-#     bindsym Escape mode "default"
-# }
+    # exit system mode: "Enter" or "Escape"
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
 
 
     # Exit sway (logs you out of your Wayland session)
