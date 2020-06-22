@@ -1,0 +1,9 @@
+ignore-empty-password
+clock
+timestr=%H.%M.%S
+datestr=%A, %m %Y
+image=~/.config/swaylock/lockscreen.jpg
+inside-color=#00000000
+ring-color=#00000000
+indicator-thickness=4px
+line-uses-ring

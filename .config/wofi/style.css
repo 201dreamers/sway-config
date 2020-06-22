@@ -1,0 +1,37 @@
+window {
+    padding: 5px;
+    border: 1px solid rgb(59, 59, 59);
+    background-color: #161414;
+
+}
+
+#input {
+    margin: 0px;
+    border: 0px;
+    background-color: #161414;
+    color: #ffffff;
+}
+
+#outer-box {
+    margin: 2px;
+}
+
+#scroll {
+    margin: 5px;
+    margin-bottom: -2px;
+    border-top: 1px dashed rgba ( 0, 54, 66, 100 );
+}
+
+#scroll label {
+    margin: 2px 0px;
+}
+
+#inner-box {
+    margin: 2px;
+    
+}
+
+#text {
+    margin: 5px;
+    color: #ffffff/*rgba ( 129, 147, 150, 255 )*/;
+}
