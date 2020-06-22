@@ -34,7 +34,7 @@ set $browser opera
 set $gnomeschema org.gnome.desktop.interface
 
 # Set linemenu
-set $linemenu dmenu_path | dmenu | xargs swaymsg exec --
+# set $linemenu dmenu_path | dmenu | xargs swaymsg exec --
 
 # Set shut down, restart and locking features
 set $mode_system (l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown
@@ -45,7 +45,7 @@ set $mode_system (l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown
 font pango: SF Pro Text 10
 
 # Borders
-default_border pixel 4
+default_border pixel 2
 hide_edge_borders both
 smart_borders no_borders
 smart_gaps on
@@ -67,7 +67,7 @@ input * {
     xkb_options grp:shift_caps_toggle
 }
 
-# Touchpad configuration
+# Touchpad configuration (swaymsg -t get_inputs)
 input "1739:30966:Synaptics_TM3096-006" {
     dwt enabled
     tap enabled
@@ -84,8 +84,9 @@ floating_modifier $mod normal
 
 ### Window rules ###
 
-# Link browser to workspace 1
+# Link some programs to workspaces (swaymsg -t get_tree)
 assign [app_id="opera"] workspace 1
+assign [app_id="TelegramDesktop"] workspace 7
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
@@ -317,6 +318,7 @@ exec pamac-tray
 exec pa-applet
 exec --no-startup-id blueman-applet
 exec --no-startup-id clipit
+exec /usr/bin/earlyoom -r 0 -m 2,1 --prefer '^Web Content$' --avoid '^(sway|waybar|pacman|packagekitd|gnome-shell|gnome-session-c|gnome-session-b|lightdm|sddm|sddm-helper|gdm|gdm-wayland-ses|gdm-session-wor|gdm-x-session|Xorg|Xwayland|systemd|systemd-logind|dbus-daemon|dbus-broker|cinnamon|cinnamon-sessio|kwin_x11|kwin_wayland|plasmashell|ksmserver|plasma_session|startplasma-way|xfce4-session|mate-session|marco|lxqt-session|openbox)'
 # exec_always --no-startup-id ff-theme-util
 # exec_always --no-startup-id fix_xcursor
 # exec_always --no-startup-id sbxkb

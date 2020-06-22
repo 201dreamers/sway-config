@@ -83,11 +83,6 @@
     color: #ffffff; 
 }
 
-#battery.charging {
-    color: #ffffff; 
-    background-color: rgb(36, 63, 47);
-}
-
 @keyframes blink {
     to {
         background-color: #ffffff;
@@ -95,14 +90,19 @@
     }
 }
 
-#battery.critical:not(.charging) {
-    background-color: #743a3a/*#f53c3c*/;
+#battery.critical/*:not(.charging)*/ {
+    background-color: #743a3a;
     color: #ffffff; 
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
     animation-iteration-count: infinite;
     animation-direction: alternate;
+}
+
+#battery.charging {
+    color: #ffffff; 
+    background-color: rgb(36, 63, 47);
 }
 
 label:focus {
