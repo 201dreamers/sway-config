@@ -4,7 +4,7 @@
     "height": 24,
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": [],
-    "modules-right": ["custom/keyboard-layout", "pulseaudio", "cpu", "memory", "battery", "clock#time", "clock#date", "tray"],
+    "modules-right": ["custom/keyboard-layout", "pulseaudio", "network", "memory", "battery", "clock#time", "clock#date", "tray"],
     "sway/window": {
         "max-length": 50
     },
@@ -21,6 +21,19 @@
             "focused": "",
             "default": ""
         }
+    },
+
+    "sway/mode": {
+	    "format": "<span style=\"italic\">{}</span>"
+    },
+
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
 
     "custom/keyboard-layout": {

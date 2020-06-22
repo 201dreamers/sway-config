@@ -30,10 +30,16 @@ set $filer Thunar
 # Browser
 set $browser opera 
 
+# For gtk applications settings
+set $gnomeschema org.gnome.desktop.interface
+
+# Set linemenu
+set $linemenu dmenu_path | dmenu | xargs swaymsg exec --
+
 ### Settings ###
 
 # Font
-font pango: SF Pro Text 10 # font
+font pango: SF Pro Text 10
 
 # Borders
 default_border pixel 4
@@ -123,12 +129,12 @@ bindsym --to-code $mod+Return exec $term
 bindsym --to-code $mod+q kill
 
 # Start your launcher
-bindsym --to-code $mod+d exec $menu
+bindsym --to-code $mod+m exec $menu
 
-bindsym $mod+Shift+m exec $term -e 'bmenu'
+bindsym $mod+b exec $term -e 'bmenu'
 
 # Launch categorized menu
-bindsym --to-code $mod+m exec --no-startup-id morc_menu
+bindsym --to-code $mod+d exec --no-startup-id morc_menu
 
 # Start browser
 bindsym --to-code $mod+1 exec $browser
@@ -285,18 +291,26 @@ bar {
 ### Autostart ###
 
 exec mako
-exec_always --no-startup-id pulseaudio
-exec --no-startup-id pa-applet
-exec --no-startup-id nm-applet
+exec_always --no-startup-id pulseaudio --daemon
 exec --no-startup-id xfce4-power-manager
-exec --no-startup-id pamac-tray
-exec --no-startup-id clipit
-exec --no-startup-id blueman-applet
-exec_always --no-startup-id ff-theme-util
-exec_always --no-startup-id fix_xcursor
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec nm-applet
+exec pamac-tray
+exec pa-applet
+exec --no-startup-id blueman-applet
+exec --no-startup-id clipit
+# exec_always --no-startup-id ff-theme-util
+# exec_always --no-startup-id fix_xcursor
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
 # exec --no-startup-id start_conky_green
+
+# Gtk applications settings
+exec_always {
+    gsettings set $gnomeschema gtk-theme 'Adwaita-blue-dark'
+    gsettings set $gnomeschema icon-theme 'Tela-blue-dark'
+    gsettings set $gnomeschema cursor-theme 'Breeze'
+    gsettings set $gnomeschema font-name 'SF Pro Text Regular 10'
+}
 
 include /etc/sway/config.d/*
