@@ -54,13 +54,6 @@ gaps inner 8
 # Default wallpaper (to change it, put image to ~/Pictures/wallpapers/ and name it main-wallpaper.*)
 output * bg "/home/hydrogen/Pictures/wallpapers/main-wallpaper.*" fill
 
-# Idle configuration
-exec swayidle -w \
-    timeout 12000 'swaylock-fancy -p' \
-    timeout 12200 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock-fancy -p'
-
 # Keyboard layout
 input * {
     xkb_layout us,ua
@@ -147,7 +140,7 @@ bindsym --to-code $mod+w exec $browser
 bindsym --to-code $mod+e exec $filer
 
 # Lock screen
-bindsym --to-code $mod+9 exec swaylock-fancy
+bindsym --to-code $mod+0 exec swaylock-fancy
 
 # Take a screenshot to clipboard (whole screen)
 bindsym --to-code Print exec grim - | wl-copy
@@ -297,7 +290,7 @@ bindsym --to-code $mod+Shift+e exec swaynag -t warning -m \
     -b 'Poweroff' 'systemctl poweroff'
 
 # Set shut down, restart and locking features
-bindsym $mod+0 mode "$mode_system"
+bindsym $mod+9 mode "$mode_system"
 mode "$mode_system" {
     bindsym l exec --no-startup-id swaylock-fancy -p, mode "default"
     bindsym s exec --no-startup-id systemctl suspend, mode "default"
@@ -316,22 +309,28 @@ bar {
    swaybar_command waybar
 }
 
-### Autostart ###
+### Autostart ### (to fix time - timedatectl set-ntp true)
 
-# Applets
-exec --no-startup-id killall nm-applet; sleep 1; /usr/bin/nm-applet --indicator
-exec sh -c "GDK_BACKEND=x11 pamac-tray"
+
+
 exec --no-startup-id blueman-applet
 exec --no-startup-id clipit
-exec --no-startup-id killall pulseaudio; sleep 1; pulseaudio --daemonize
+exec --no-startup-id sh -c "sleep 7; pulseaudio --daemonize"
+exec --no-startup-id sh -c "sleep 12; /usr/bin/nm-applet --indicator"
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec mako
-exec redshift -t 3600:6000
-exec xfsettingsd
-exec --no-startup-id xfce4-power-manager
-exec /usr/bin/earlyoom -r 0 -m 2,1 --prefer '^Web Content$' --avoid '^(sway|waybar|pacman|packagekitd|gnome-shell|gnome-session-c|gnome-session-b|lightdm|sddm|sddm-helper|gdm|gdm-wayland-ses|gdm-session-wor|gdm-x-session|Xorg|Xwayland|systemd|systemd-logind|dbus-daemon|dbus-broker|cinnamon|cinnamon-sessio|kwin_x11|kwin_wayland|plasmashell|ksmserver|plasma_session|startplasma-way|xfce4-session|mate-session|marco|lxqt-session|openbox)'
+exec sh -c "/usr/bin/earlyoom -r 0 -m 2,1 --prefer '^Web Content$' --avoid '^(sway|waybar|pacman|packagekitd|gnome-shell|gnome-session-c|gnome-session-b|lightdm|sddm|sddm-helper|gdm|gdm-wayland-ses|gdm-session-wor|gdm-x-session|Xorg|Xwayland|systemd|systemd-logind|dbus-daemon|dbus-broker|cinnamon|cinnamon-sessio|kwin_x11|kwin_wayland|plasmashell|ksmserver|plasma_session|startplasma-way|xfce4-session|mate-session|marco|lxqt-session|openbox)'"
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
+exec swayidle -w \
+    timeout 12000 'swaylock-fancy' \
+    timeout 12200 'swaymsg "output * dpms off"' \
+    resume 'swaymsg "output * dpms on"' \
+    before-sleep 'swaylock-fancy'
+# exec xfsettingsd
+# exec --no-startup-id xfce4-power-manager
+# exec redshift -t 3600:6000
+# exec_always sh -c "GDK_BACKEND=x11 pamac-tray"
 # exec start-pulse-audio-x11
 # exec_always --no-startup-id sbxkb
 # exec --no-startup-id start_conky_maia
