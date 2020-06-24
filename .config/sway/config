@@ -25,10 +25,10 @@ set $term xfce4-terminal
 set $menu wofi --show run --allow-images
 
 # File manager
-set $filer Thunar
+set $filer nautilus
 
 # Browser
-set $browser opera 
+set $browser firefox 
 
 # For gtk applications settings
 set $gnomeschema org.gnome.desktop.interface
@@ -311,16 +311,14 @@ bar {
 
 ### Autostart ### (to fix time - timedatectl set-ntp true)
 
-
-
 exec --no-startup-id blueman-applet
 exec --no-startup-id clipit
 exec --no-startup-id sh -c "sleep 7; pulseaudio --daemonize"
 exec --no-startup-id sh -c "sleep 12; /usr/bin/nm-applet --indicator"
-exec sleep 12; redshift -P -l 50.27:30.31 -t 3600:6000 -m wayland
+exec sleep 12; redshift -P -l 50.27:30.31 -t 3600:6000
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec mako
-exec sh -c "/usr/bin/earlyoom -r 0 -m 2,1 --prefer '^Web Content$' --avoid '^(sway|waybar|pacman|packagekitd|gnome-shell|gnome-session-c|gnome-session-b|lightdm|sddm|sddm-helper|gdm|gdm-wayland-ses|gdm-session-wor|gdm-x-session|Xorg|Xwayland|systemd|systemd-logind|dbus-daemon|dbus-broker|cinnamon|cinnamon-sessio|kwin_x11|kwin_wayland|plasmashell|ksmserver|plasma_session|startplasma-way|xfce4-session|mate-session|marco|lxqt-session|openbox)'"
+exec sleep 5; sh -c "/usr/bin/earlyoom -r 0 -m 2,1 --prefer '^Web Content$' --avoid '^(sway|waybar|pacman|packagekitd|gnome-shell|gnome-session-c|gnome-session-b|lightdm|sddm|sddm-helper|gdm|gdm-wayland-ses|gdm-session-wor|gdm-x-session|Xorg|Xwayland|systemd|systemd-logind|dbus-daemon|dbus-broker|cinnamon|cinnamon-sessio|kwin_x11|kwin_wayland|plasmashell|ksmserver|plasma_session|startplasma-way|xfce4-session|mate-session|marco|lxqt-session|openbox)'"
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec swayidle -w \
@@ -342,7 +340,7 @@ exec swayidle -w \
 exec_always {
     gsettings set $gnomeschema gtk-theme 'Adwaita-blue-dark'
     gsettings set $gnomeschema icon-theme 'Tela-blue-dark'
-    gsettings set $gnomeschema cursor-theme 'Breeze'
+    gsettings set $gnomeschema cursor-theme 'Pop'
     gsettings set $gnomeschema font-name 'SF Pro Text Regular 10'
 }
 
