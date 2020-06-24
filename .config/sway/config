@@ -28,7 +28,7 @@ set $menu wofi --show run --allow-images
 set $filer nautilus
 
 # Browser
-set $browser firefox 
+set $browser opera 
 
 # For gtk applications settings
 set $gnomeschema org.gnome.desktop.interface
@@ -52,7 +52,7 @@ smart_gaps on
 gaps inner 8
 
 # Default wallpaper (to change it, put image to ~/Pictures/wallpapers/ and name it main-wallpaper.*)
-output * bg "/home/hydrogen/Pictures/wallpapers/main-wallpaper.*" fill
+output * bg "$HOME/Pictures/wallpapers/main-wallpaper.*" fill
 
 # Keyboard layout
 input * {
@@ -129,6 +129,10 @@ bindsym --to-code $mod+q kill
 bindsym --to-code $mod+d exec $menu
 
 bindsym $mod+b exec $term -e 'bmenu'
+
+# Launch wifi choice
+bindsym --to-code $mod+n exec $term -e nmtui-edit
+bindsym --to-code $mod+Shift+n exec wofi-wifi-menu
 
 # Launch categorized menu
 bindsym --to-code $mod+a exec --no-startup-id morc_menu
@@ -338,9 +342,9 @@ exec swayidle -w \
 
 # Gtk applications settings
 exec_always {
-    gsettings set $gnomeschema gtk-theme 'Adwaita-blue-dark'
+    gsettings set $gnomeschema gtk-theme 'Matcha-dark-azul'
     gsettings set $gnomeschema icon-theme 'Tela-blue-dark'
-    gsettings set $gnomeschema cursor-theme 'Pop'
+    gsettings set $gnomeschema cursor-theme 'xcursor-breeze'
     gsettings set $gnomeschema font-name 'SF Pro Text Regular 10'
 }
 

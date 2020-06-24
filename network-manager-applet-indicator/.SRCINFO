@@ -1,0 +1,39 @@
+pkgbase = network-manager-applet-indicator
+	pkgdesc = Applet for managing network connections with AppIndicator/StatusNotifierItem
+	pkgver = 1.16.0
+	pkgrel = 1
+	url = https://wiki.gnome.org/Projects/NetworkManager/
+	arch = x86_64
+	license = GPL
+	license = LGPL
+	makedepends = libsecret
+	makedepends = libnotify
+	makedepends = libmm-glib
+	makedepends = gobject-introspection
+	makedepends = git
+	makedepends = gtk-doc
+	makedepends = meson
+	makedepends = libnma-indicator
+	depends = libappindicator-gtk3
+	source = git+https://gitlab.gnome.org/GNOME/network-manager-applet.git#commit=daded73d8a1283004768125a110e088106528a90
+	sha256sums = SKIP
+
+pkgname = network-manager-applet-indicator
+	depends = nm-connection-editor-indicator
+	depends = libmm-glib
+	depends = libnotify
+	depends = libsecret
+	depends = networkmanager
+	depends = libappindicator-gtk3
+	provides = network-manager-applet=1.16.0-1
+	conflicts = network-manager-applet
+
+pkgname = nm-connection-editor-indicator
+	pkgdesc = NetworkManager GUI connection editor and widgets with AppIndicator/StatusNotifierItem
+	depends = libnma-indicator
+	depends = libappindicator-gtk3
+	provides = nm-connection-editor=1.16.0-1
+	conflicts = nm-connection-editor
+	conflicts = libnm-gtk<1.8.18-1
+	replaces = libnm-gtk<1.8.18-1
+

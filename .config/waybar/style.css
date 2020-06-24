@@ -9,6 +9,18 @@
 
 /* The whole bar */
 #waybar {
+	/* ### manjaro themes
+	# matcha dark sea
+	dark grey #141A1B
+	grey #1B2224
+	green #33B165
+	cyan #2EB398
+	# matcha dark azul
+	dark grey #14161B
+	grey #1B2224
+	blue #3498DB
+	blue darker #4146D1
+	*/
     background: #1d1b1b;
     color: white;
     font-family: SF Pro Text Regular, Cantarell, Noto Sans, sans-serif;
