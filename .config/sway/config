@@ -317,6 +317,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id clipit
 exec --no-startup-id sh -c "sleep 7; pulseaudio --daemonize"
 exec --no-startup-id sh -c "sleep 12; /usr/bin/nm-applet --indicator"
+exec sleep 12; redshift -P -l 50.27:30.31 -t 3600:6000 -m wayland
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec mako
 exec sh -c "/usr/bin/earlyoom -r 0 -m 2,1 --prefer '^Web Content$' --avoid '^(sway|waybar|pacman|packagekitd|gnome-shell|gnome-session-c|gnome-session-b|lightdm|sddm|sddm-helper|gdm|gdm-wayland-ses|gdm-session-wor|gdm-x-session|Xorg|Xwayland|systemd|systemd-logind|dbus-daemon|dbus-broker|cinnamon|cinnamon-sessio|kwin_x11|kwin_wayland|plasmashell|ksmserver|plasma_session|startplasma-way|xfce4-session|mate-session|marco|lxqt-session|openbox)'"

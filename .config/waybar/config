@@ -26,10 +26,6 @@
         }
     },
 
-    "sway/mode": {
-	    "format": "System menu: <span style=\"italic\">{}</span>"
-    },
-
     "network": {
         // "interface": "wlp2*", // (Optional) To force the use of this interface
         "format-wifi": "{essid} ({signalStrength}%) ",
