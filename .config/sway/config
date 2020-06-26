@@ -33,9 +33,6 @@ set $browser opera
 # For gtk applications settings
 set $gnomeschema org.gnome.desktop.interface
 
-# Set linemenu
-# set $linemenu dmenu_path | dmenu | xargs swaymsg exec --
-
 # Set shut down, restart and locking features
 set $mode_system (l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown
 
@@ -79,7 +76,7 @@ floating_modifier $mod normal
 
 # Link some programs to workspaces (swaymsg -t get_tree)
 assign [app_id="opera"] workspace 1
-assign [class="TelegramDesktop"] workspace 7
+assign [app_id="telegramdesktop"] workspace 7
 
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
@@ -283,7 +280,7 @@ mode "resize" {
 bindsym --to-code $mod+r mode "resize"
 
 # Sticky window
-bindsym $mod+Shift+s sticky toggle
+bindsym --to-code $mod+Shift+s sticky toggle
 
 # Exit sway (logs you out of your Wayland session)
 bindsym --to-code $mod+Shift+e exec swaynag -t warning -m \
@@ -319,7 +316,7 @@ exec --no-startup-id blueman-applet
 exec --no-startup-id clipit
 exec --no-startup-id sh -c "sleep 7; pulseaudio --daemonize"
 exec --no-startup-id sh -c "sleep 12; /usr/bin/nm-applet --indicator"
-exec sleep 12; redshift -P -l 50.27:30.31 -t 3600:6000
+exec --no-startup-id sh -c "sleep 12; /usr/bin/redshift"
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec mako
 exec sleep 5; sh -c "/usr/bin/earlyoom -r 0 -m 2,1 --prefer '^Web Content$' --avoid '^(sway|waybar|pacman|packagekitd|gnome-shell|gnome-session-c|gnome-session-b|lightdm|sddm|sddm-helper|gdm|gdm-wayland-ses|gdm-session-wor|gdm-x-session|Xorg|Xwayland|systemd|systemd-logind|dbus-daemon|dbus-broker|cinnamon|cinnamon-sessio|kwin_x11|kwin_wayland|plasmashell|ksmserver|plasma_session|startplasma-way|xfce4-session|mate-session|marco|lxqt-session|openbox)'"

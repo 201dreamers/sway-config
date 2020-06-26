@@ -21,15 +21,15 @@
 	blue #3498DB
 	blue darker #4146D1
 	*/
-    background: #1d1b1b;
+    background: rgb(27, 20, 20)/*#1d1b1b*/;
     color: white;
     font-family: SF Pro Text Regular, Cantarell, Noto Sans, sans-serif;
     font-size: 13px;
 }
 
 #window {
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
     margin: 0 4px;
 }
 
@@ -41,8 +41,8 @@
 #workspaces button {
     /* To compensate for the top border and still have vertical centering */
     padding-bottom: 2px;
-    padding-left: 6px;
-    padding-right: 6px;
+    padding-left: 4px;
+    padding-right: 4px;
     color: #888888;
 }
 
@@ -50,17 +50,17 @@
     /* border-bottom: 3px solid #3daee9; 
     border-color: #3daee9; */
     color: white;
-    background-color: #285577;
+    background-color: #285577/*#285577*/;
 }
 
 #workspaces button.urgent {
-    border-color: #c9545d;
-    color: #c9545d;
+    /* border-color: #9c525a; */
+    color: #9c525a;
 }
 
 #mode {
-    background-color: #64727D;
-    border-bottom: 3px solid #ffffff;
+    background-color: #9c525a/*#64727D*/;
+    /* border-bottom: 3px solid #ffffff; */
     font-size: 14px;
     
 }
@@ -77,32 +77,23 @@
 #tray,
 #mode,
 #idle_inhibitor {
-    padding-left: 4px;
-    padding-right: 4px;
+    padding-left: 2px;
+    padding-right: 2px;
     margin: 0 4px;
 }
 
-/* #custom-keyboard-layout {
-    border-bottom: 3px solid #3daee9;
-}
-
-#clock {
-    border-bottom: 3px solid #3daee9;
-} */
-
-#battery {
-    background-color: #1d1b1b;
-    color: #ffffff; 
+label:focus {
+    background-color: #000000;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
+        background-color: #b3b3b3;
         color: #31363b;
     }
 }
 
-#battery.critical/*:not(.charging)*/ {
+#battery.discharging.critical {
     background-color: #743a3a;
     color: #ffffff; 
     animation-name: blink;
@@ -112,16 +103,54 @@
     animation-direction: alternate;
 }
 
+#battery.discharging.warning {
+    background-color: #8d7831;
+    color: #ffffff; 
+}
+
 #battery.charging {
     color: #ffffff; 
     background-color: rgb(36, 63, 47);
 }
 
-label:focus {
-    background-color: #000000;
+#cpu.warning {
+    background-color: #8d7831;
+    color: #ffffff; 
 }
 
-/* #cpu {
+#cpu.critical {
+    background-color: #743a3a;
+    color: #ffffff; 
+}
+
+#tray {
+    
+}
+
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}
+
+/*
+#battery {
+    background-color: #14161B;
+    color: #ffffff; 
+}
+
+#custom-keyboard-layout {
+    border-bottom: 3px solid #3daee9;
+}
+
+#clock {
+    border-bottom: 3px solid #3daee9;
+}
+
+ #cpu {
     border-bottom: 3px solid #3daee9;
 }
 
@@ -151,17 +180,5 @@ label:focus {
 
 #temperature.critical {
     background-color: #eb4d4b;
-} */
-
-#tray {
-    
-}
-
-#idle_inhibitor {
-    background-color: #2d3436;
-}
-
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-}
+} 
+*/
