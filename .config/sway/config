@@ -18,11 +18,14 @@ set $ws5 5
 set $ws6 6
 set $ws7 7
 
+# Locker
+set $locker swaylock-fancy
+
 # Terminal emulator
 set $term xfce4-terminal
 
 # Application launcher
-set $menu wofi --show run --allow-images
+set $menu wofi 
 
 # File manager
 set $filer nautilus
@@ -32,9 +35,6 @@ set $browser opera
 
 # For gtk applications settings
 set $gnomeschema org.gnome.desktop.interface
-
-# Set shut down, restart and locking features
-set $mode_system (l)ock, (e)xit, (s)uspend, (r)eboot, (Shift+s)hutdown
 
 ### Settings ###
 
@@ -49,7 +49,7 @@ smart_gaps on
 gaps inner 8
 
 # Default wallpaper (to change it, put image to ~/Pictures/wallpapers/ and name it main-wallpaper.*)
-output * bg "$HOME/Pictures/wallpapers/main-wallpaper.*" fill
+# output * bg "$HOME/Pictures/wallpapers/main-wallpaper.*" fill
 
 # Keyboard layout
 input * {
@@ -123,16 +123,15 @@ bindsym --to-code $mod+Return exec $term
 bindsym --to-code $mod+q kill
 
 # Start your launcher
-bindsym --to-code $mod+d exec $menu
+bindsym --to-code $mod+d exec $menu --show run --allow-images
 
-bindsym $mod+b exec $term -e 'bmenu'
+bindsym --to-code $mod+b exec $term -e 'bmenu'
 
 # Launch wifi choice
-bindsym --to-code $mod+n exec $term -e nmtui-edit
-bindsym --to-code $mod+Shift+n exec wofi-wifi-menu
+bindsym --to-code $mod+n exec $term -e nmtui-connect
 
 # Launch categorized menu
-bindsym --to-code $mod+a exec --no-startup-id morc_menu
+bindsym --to-code $mod+a exec --no-startup-id $menu
 
 # Start browser
 bindsym --to-code $mod+w exec $browser
@@ -141,7 +140,10 @@ bindsym --to-code $mod+w exec $browser
 bindsym --to-code $mod+e exec $filer
 
 # Lock screen
-bindsym --to-code $mod+0 exec swaylock-fancy
+bindsym --to-code $mod+0 exec $locker
+
+# Color picker
+bindsym --to-code $mod+p exec swaynag -t mtype -m "$(grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-)"
 
 # Take a screenshot to clipboard (whole screen)
 bindsym --to-code Print exec grim - | wl-copy
@@ -283,26 +285,30 @@ bindsym --to-code $mod+r mode "resize"
 bindsym --to-code $mod+Shift+s sticky toggle
 
 # Exit sway (logs you out of your Wayland session)
-bindsym --to-code $mod+Shift+e exec swaynag -t warning -m \
+bindsym --to-code $mod+Shift+e exec swaynag -t mtype -m \
     'You pressed the exit shortcut. What do you want?' \
-    -b 'Logout' 'swaymsg exit' \
-    -b 'Sleep' 'systemctl suspend' \
+    -b 'Poweroff' 'systemctl poweroff' \
     -b 'Reboot' 'systemctl reboot' \
-    -b 'Poweroff' 'systemctl poweroff'
+    -b 'Sleep' 'systemctl suspend' \
+    -b 'Logout' 'swaymsg exit' \
+    -b 'Lock screen' 'swaylock-fancy'
 
-# Set shut down, restart and locking features
-bindsym $mod+9 mode "$mode_system"
-mode "$mode_system" {
-    bindsym l exec --no-startup-id swaylock-fancy -p, mode "default"
-    bindsym s exec --no-startup-id systemctl suspend, mode "default"
-    bindsym e exec --no-startup-id swaymsg exit, mode "default"
-    bindsym r exec --no-startup-id systemctl reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id systemctl poweroff, mode "default"
+# Shutdown/Logout menu
+    set $mode_system System (l) lock, (e) logout, (s) suspend,R (r) reboot, (Shift+s) shutdown
+    mode "$mode_system" {
+        bindsym l exec $locker, mode "default"
+        bindsym e exec swaymsg exit, mode "default"
+        bindsym s exec $locker && systemctl suspend, mode "default"
+        bindsym r exec systemctl reboot, mode "default"
+        bindsym Shift+s exec systemctl poweroff -i, mode "default"
 
-    # exit system mode: "Enter" or "Escape"
-    bindsym Return mode "default"
-    bindsym Escape mode "default"
-}
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+    }
+
+    bindsym $mod+Delete mode "$mode_system"
+
 
 ### Status bar ###
 
@@ -319,7 +325,7 @@ exec --no-startup-id sh -c "sleep 12; /usr/bin/nm-applet --indicator"
 exec --no-startup-id sh -c "sleep 12; /usr/bin/redshift"
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec mako
-exec sleep 5; sh -c "/usr/bin/earlyoom -r 0 -m 2,1 --prefer '^Web Content$' --avoid '^(sway|waybar|pacman|packagekitd|gnome-shell|gnome-session-c|gnome-session-b|lightdm|sddm|sddm-helper|gdm|gdm-wayland-ses|gdm-session-wor|gdm-x-session|Xorg|Xwayland|systemd|systemd-logind|dbus-daemon|dbus-broker|cinnamon|cinnamon-sessio|kwin_x11|kwin_wayland|plasmashell|ksmserver|plasma_session|startplasma-way|xfce4-session|mate-session|marco|lxqt-session|openbox)'"
+exec sleep 5 && sh -c "/usr/bin/earlyoom -r 0 -m 2,1 --prefer '^Web Content$' --avoid '^(sway|waybar|pacman|packagekitd|gnome-shell|gnome-session-c|gnome-session-b|lightdm|sddm|sddm-helper|gdm|gdm-wayland-ses|gdm-session-wor|gdm-x-session|Xorg|Xwayland|systemd|systemd-logind|dbus-daemon|dbus-broker|cinnamon|cinnamon-sessio|kwin_x11|kwin_wayland|plasmashell|ksmserver|plasma_session|startplasma-way|xfce4-session|mate-session|marco|lxqt-session|openbox)'"
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec swayidle -w \
@@ -329,7 +335,6 @@ exec swayidle -w \
     before-sleep 'swaylock-fancy'
 # exec xfsettingsd
 # exec --no-startup-id xfce4-power-manager
-# exec redshift -t 3600:6000
 # exec_always sh -c "GDK_BACKEND=x11 pamac-tray"
 # exec start-pulse-audio-x11
 # exec_always --no-startup-id sbxkb
@@ -339,8 +344,8 @@ exec swayidle -w \
 
 # Gtk applications settings
 exec_always {
-    gsettings set $gnomeschema gtk-theme 'Matcha-dark-azul'
-    gsettings set $gnomeschema icon-theme 'Tela-blue-dark'
+    gsettings set $gnomeschema gtk-theme 'Canvas-dark'
+    gsettings set $gnomeschema icon-theme 'Tela-ubuntu-dark'
     gsettings set $gnomeschema cursor-theme 'xcursor-breeze'
     gsettings set $gnomeschema font-name 'SF Pro Text Regular 10'
 }

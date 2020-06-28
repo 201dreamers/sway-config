@@ -1,3 +1,20 @@
+/* ### manjaro themes
+    
+    # matcha dark sea
+    dark grey #141A1B
+    grey #1B2224
+    green #33B165
+    cyan #2EB398
+
+    # matcha dark azul
+    dark grey #14161B
+    grey #1B2224
+    blue #3498DB
+    blue darker #4146D1
+
+    
+    */
+
 /* Reset all styles */
 * {
     border: none;
@@ -9,19 +26,8 @@
 
 /* The whole bar */
 #waybar {
-	/* ### manjaro themes
-	# matcha dark sea
-	dark grey #141A1B
-	grey #1B2224
-	green #33B165
-	cyan #2EB398
-	# matcha dark azul
-	dark grey #14161B
-	grey #1B2224
-	blue #3498DB
-	blue darker #4146D1
-	*/
-    background: rgb(27, 20, 20)/*#1d1b1b*/;
+	
+    background: rgba(30, 30, 30, 0.9)/*#1d1b1b*/;
     color: white;
     font-family: SF Pro Text Regular, Cantarell, Noto Sans, sans-serif;
     font-size: 13px;
@@ -110,7 +116,7 @@ label:focus {
 
 #battery.charging {
     color: #ffffff; 
-    background-color: rgb(36, 63, 47);
+    background-color: rgb(37, 68, 50);
 }
 
 #cpu.warning {

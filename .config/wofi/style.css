@@ -1,37 +1,55 @@
 window {
-    padding: 5px;
-    border: 1px solid rgb(59, 59, 59);
-    background-color: #161414;
+    margin: 5px;
+    border: 0px solid #444444;
+    background-color: rgba(0, 0, 0, 0.0);
+    font-family: SF Pro Text Regular;
+}
 
+@keyframes erscheinen {
+    from {opacity: 0;}
+      to {opacity: 1;}
 }
 
 #input {
-    margin: 0px;
-    border: 0px;
-    background-color: #161414;
-    color: #ffffff;
-}
-
-#outer-box {
-    margin: 2px;
-}
-
-#scroll {
-    margin: 5px;
-    margin-bottom: -2px;
-    border-top: 1px dashed rgba ( 0, 54, 66, 100 );
-}
-
-#scroll label {
-    margin: 2px 0px;
+    margin: 0px 0px 5px;
+    border: 1px solid #c9c9c9;
+    background-color: rgba(30, 30, 30, 0.810);
+    border-radius: 5px;
+    color : #fdf6e3;
+    animation: erscheinen 0.3s linear;
 }
 
 #inner-box {
-    margin: 2px;
-    
+    margin: 0px;
+    border: 0px solid #444444;
+    background-color: rgba(68, 68, 68, 0.0);
+}
+
+/* #inner-box flowboxchild:nth-child(even) { */
+/*     background-color: #555555; */
+/* } */
+
+#outer-box {
+    margin: 0px;
+    border: 0px solid rgb(203, 75, 22);
+    background-color: rgba(0, 0, 0, 0.0);
+}
+
+#scroll {
+    margin: 0px;
+    border: 1px solid #c9c9c9;
+    border-radius: 5px;
+    background-color: rgba(30, 30, 30, 0.810);
+    animation: erscheinen 0.3s linear;
 }
 
 #text {
-    margin: 5px;
-    color: #ffffff/*rgba ( 129, 147, 150, 255 )*/;
+    margin: 1px;
+    border: 0px solid #44AA44;
+    /* background-color: #444444; */
+    color: #FFFFFF;
+}
+
+#selected {
+    background-color: rgb(40, 85, 119);
 }
