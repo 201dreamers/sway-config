@@ -1,22 +1,20 @@
 # Dotfiles mostly for sway wm configuration
+
 ### Used packages:
-* xfce4-terminal
-* wofi
-* thunar
-* bmenu
-* morc_menu
-* swaylock-fancy
-* grim
-* slurp
-* brightnessctl
-* pulseaudio/pavucontrol
-* waybar
-* nm-applet/network-manager-applet-indicator
-* mako
-* earlyoom
-* redshift/redshift-wlr-gamma-control-git
-* blueman/blueman-applet
-* clipit
+* wofi - menu launcher
+* bmenu - alternative menu
+* swaylock-fancy - lockscreen
+* grim - screenshot and colorpick utility
+* slurp - utility for selecting an area
+* brightnessctl - for brightness control
+* pulseaudio/pavucontrol - for audio control
+* waybar - bar for swaywm
+* nm-applet/network-manager-applet-indicator - wifi applet
+* mako - nitification manager
+* earlyoom - out of memory manager
+* redshift/redshift-wlr-gamma-control-git - blue light filter
+* blueman/blueman-applet - bluetooth applet
+* clipit - clipboard manager
 * awesome font
 * wf-recorder
-* (polkit-gnome-authentication, cups, qt5ct, tlp, tlp-rdw, )
+* (polkit-gnome-authentication, qt5ct, tlp, tlp-rdw, )
