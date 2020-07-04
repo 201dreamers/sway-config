@@ -2,12 +2,25 @@
     "layer": "top",
     "position": "top",
     "height": 24,
-    "modules-left": ["sway/workspaces", "sway/window"],
+    "modules-left": [ "custom/scratchpad-indicator", "sway/workspaces", "sway/window"],
     "modules-center": ["sway/mode"],
     "modules-right": ["custom/keyboard-layout", "pulseaudio", "network", "cpu", "memory", "battery", "clock#time", "clock#date", "tray"],
     
     "sway/window": {
         "max-length": 50
+    },
+
+    "custom/keyboard-layout": {
+        "exec": "~/.config/waybar/modules/kblayout",
+        "format": "   {}"
+    },
+
+    "custom/scratchpad-indicator": {
+        "interval": 3,
+        "exec": "~/.config/waybar/modules/scratchpad_indicator",
+        "format": ": {}",
+        "on-click-right": "swaymsg 'scratchpad show'",
+        "on-click": "swaymsg 'move scratchpad'"
     },
 
     "sway/workspaces": {
@@ -32,13 +45,8 @@
         "format-wifi": "{signalStrength}% ",
         "format-ethernet": "{ifname}: {ipaddr}/{cidr} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "R⚠",
+        "format-disconnected": "Dis⚠",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-
-    "custom/keyboard-layout": {
-        "exec": "~/.config/waybar/modules/kblayout",
-        "format": "   {}"
     },
 
     "pulseaudio": {

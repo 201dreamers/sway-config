@@ -1,0 +1,5 @@
+#!/usr/bin/zsh
+# swaymsg -t get_tree | jq 'select(.name == "root") | .nodes[] | select(.name == "__i3") | .nodes[] | select(.name == "__i3_scratch") | .floating_nodes | length'
+# swaymsg -mt subscribe '["window"]' | jq "if select(.change == \"move\") then $(swaymsg -t get_tree | jq 'select(.name == "root") | .nodes[] | select(.name == "__i3") | .nodes[] | select(.name == "__i3_scratch") | .floating_nodes | length') else . end"
+
+swaymsg -t get_tree | jq 'select(.name == "root") | .nodes[] | select(.name == "__i3") | .nodes[] | select(.name == "__i3_scratch") | .floating_nodes | length'

@@ -15,7 +15,7 @@ swaymsg \
       ] |
         first // "En"
     '
-
+killall swaymsg > /dev/null;
 swaymsg \
   --type subscribe \
   --monitor \

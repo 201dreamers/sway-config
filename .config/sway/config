@@ -143,26 +143,26 @@ bindsym --to-code $mod+e exec $filer
 bindsym --to-code $mod+0 exec $locker
 
 # Color picker
-bindsym --to-code $mod+p exec swaynag -t mtype -m "$(grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-)"
+bindsym --to-code $mod+p exec swaynag -t mtype -m "$(grim -g "$(slurp -p)" -t ppm - | convert - -format '%[pixel:p{0,0}]' txt:-)" && notify-send "Color picked"
 
 # Take a screenshot to clipboard (whole screen)
-bindsym --to-code Print exec grim - | wl-copy
+bindsym --to-code Print exec grim - | wl-copy && notify-send "Screenshot of whole screen saved to clipboard"
 
 # Take a screenshot of selected region to clipboard
-bindsym --to-code $mod+Print exec grim -g "$(slurp)" - | wl-copy
+bindsym --to-code $mod+Print exec grim -g "$(slurp)" - | wl-copy && notify-send "Screenshot of selected region saved to clipboard"
     
 # Take a screenshot of focused window to clipboard
-bindsym --to-code $mod+Shift+Print exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" - | wl-copy
+bindsym --to-code $mod+Shift+Print exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" - | wl-copy && notify-send "Screenshot of active window saved to clipboard"
 
 
 # Take a screenshot (whole screen)
-bindsym --to-code Ctrl+Print exec grim ~/Pictures/screenshots/screenshot-"$(date +%s)".png
+bindsym --to-code Ctrl+Print exec grim ~/Pictures/screenshots/screenshot-"$(date +%s)".png && notify-send "Screenshot of whole screen saved to folder"
 
 # Take a screenshot of selected region
-bindsym --to-code $mod+Ctrl+Print exec grim -g "$(slurp)" ~/Pictures/screenshots/screenshot-"$(date +%s)".png
+bindsym --to-code $mod+Ctrl+Print exec grim -g "$(slurp)" ~/Pictures/screenshots/screenshot-"$(date +%s)".png && notify-send "Screenshot of selected region saved to folder"
     
 # Take a screenshot of focused window
-bindsym --to-code $mod+Ctrl+Shift+Print exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" ~/Pictures/screenshot-"$(date +%s)".png
+bindsym --to-code $mod+Ctrl+Shift+Print exec grim -g "$(swaymsg -t get_tree | jq -r '.. | select(.focused?) | .rect | "\(.x),\(.y) \(.width)x\(.height)"')" ~/Pictures/screenshot-"$(date +%s)".png && notify-send "Screenshot of active window saved to folder"
 
 # Move your focus around
 bindsym --to-code $mod+$left focus left
@@ -214,7 +214,7 @@ bindsym --to-code XF86MonBrightnessDown exec brightnessctl -q set 2%- # decrease
 bindsym --to-code $mod+Ctrl+p exec pavucontrol
 bindsym --to-code XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +2% #increase sound volume
 bindsym --to-code XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -2% #decrease sound volume
-bindsym --to-code XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+bindsym --to-code XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle notify-send "Muted" # mute sound
 bindsym --to-code XF86AudioPlay exec playerctl play-pause
 bindsym --to-code XF86AudioPause exec playerctl play-pause
 bindsym --to-code XF86AudioNext exec playerctl next
@@ -225,8 +225,8 @@ bindsym --to-code XF86AudioPrev exec playerctl previous
 # You can "split" the current object of your focus with
 # $mod+b or $mod+v, for horizontal and vertical splits
 # respectively.
-bindsym --to-code --to-code $mod+c splith
-bindsym --to-code --to-code $mod+v splitv
+bindsym --to-code --to-code $mod+c splith; exec notify-send "Split horizontaly"
+bindsym --to-code --to-code $mod+v splitv; exec notify-send "Split verticaly"
 
 # Switch the current container between different layout styles
 bindsym --to-code $mod+F3 layout stacking
@@ -251,11 +251,11 @@ bindsym --to-code $mod+m focus parent
 # You can send windows there and get them back later.
 
 # Move the currently focused window to the scratchpad
-bindsym --to-code $mod+Shift+minus move scratchpad
+bindsym --to-code $mod+minus move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym --to-code $mod+minus scratchpad show
+bindsym --to-code $mod+Shift+minus scratchpad show
 
 # Resizing containers:
 
@@ -326,6 +326,8 @@ exec --no-startup-id sh -c "sleep 12; /usr/bin/redshift"
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec mako
 exec sleep 5 && sh -c "/usr/bin/earlyoom -r 0 -m 2,1 --prefer '^Web Content$' --avoid '^(sway|waybar|pacman|packagekitd|gnome-shell|gnome-session-c|gnome-session-b|lightdm|sddm|sddm-helper|gdm|gdm-wayland-ses|gdm-session-wor|gdm-x-session|Xorg|Xwayland|systemd|systemd-logind|dbus-daemon|dbus-broker|cinnamon|cinnamon-sessio|kwin_x11|kwin_wayland|plasmashell|ksmserver|plasma_session|startplasma-way|xfce4-session|mate-session|marco|lxqt-session|openbox)'"
+# Is generated by azote wallpaper manager
+exec ~/.azotebg
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 exec swayidle -w \
