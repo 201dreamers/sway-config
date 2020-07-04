@@ -1,11 +1,11 @@
 # Dotfiles for sway wm configuration
 
 ### Screenshots of my sway configuration
-![Screenshot 1](https://github.com/201dreamers/dotfiles/tree/master/screenshots/screenshot-1.png "Screenshot 1")
+![Screenshot 1](./screenshots/screenshot-1.png "Screenshot 1")
 
-![Screenshot 2](https://github.com/201dreamers/dotfiles/tree/master/screenshots/screenshot-2.png "Screenshot 2")
+![Screenshot 2](./screenshots/screenshot-2.png "Screenshot 2")
 
-![Screenshot 3](https://github.com/201dreamers/dotfiles/tree/master/screenshots/screenshot-3.png "Screenshot 3")
+![Screenshot 3](./screenshots/screenshot-3.png "Screenshot 3")
 
 ### Used packages:
 * wofi - menu launcher

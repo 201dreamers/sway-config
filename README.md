@@ -1,6 +1,10 @@
 # Dotfiles for sway wm configuration
 
 ### Screenshots of my sway configuration
+![Screenshot 4](./screenshots/screenshot-4.png "Screenshot 4")
+
+![Screenshot 5](./screenshots/screenshot-5.png "Screenshot 5")
+
 ![Screenshot 1](./screenshots/screenshot-1.png "Screenshot 1")
 
 ![Screenshot 2](./screenshots/screenshot-2.png "Screenshot 2")
