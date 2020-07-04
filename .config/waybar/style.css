@@ -1,22 +1,5 @@
-/* ### manjaro themes
-    
-    # matcha dark sea
-    dark grey #141A1B
-    grey #1B2224
-    green #33B165
-    cyan #2EB398
-
-    # matcha dark azul
-    dark grey #14161B
-    grey #1B2224
-    blue #3498DB
-    blue darker #4146D1
-
-    
-    */
-
-/* Reset all styles */
 * {
+    background: none;
     border: none;
     border-radius: 0;
     min-height: 0;
@@ -24,52 +7,14 @@
     padding: 0;
 }
 
-/* The whole bar */
 #waybar {
-	
-    background: rgba(30, 30, 30, 0.9)/*#1d1b1b*/;
     color: white;
     font-family: SF Pro Text Regular, Cantarell, Noto Sans, sans-serif;
     font-size: 13px;
 }
 
-#window {
-    padding-left: 4px;
-    padding-right: 4px;
-    margin: 0 4px;
-}
-
-#window #waybar.hidden {
-    opacity: 0.2;
-}
-
-
-#workspaces button {
-    /* To compensate for the top border and still have vertical centering */
-    padding-bottom: 2px;
-    padding-left: 4px;
-    padding-right: 4px;
-    color: #888888;
-}
-
-#workspaces button.focused {
-    /* border-bottom: 3px solid #3daee9; 
-    border-color: #3daee9; */
-    color: white;
-    background-color: #285577/*#285577*/;
-}
-
-#workspaces button.urgent {
-    /* border-color: #9c525a; */
-    color: #9c525a;
-}
-
-#mode {
-    background-color: #9c525a/*#64727D*/;
-    /* border-bottom: 3px solid #ffffff; */
-    font-size: 14px;
-    
-}
+#window,
+#workspaces,
 #custom-scratchpad-indicator,
 #custom-keyboard-layout,
 #custom-weather,
@@ -83,14 +28,82 @@
 #tray,
 #mode,
 #idle_inhibitor {
-    padding-left: 2px;
-    padding-right: 2px;
-    margin: 0 4px;
+    background-color: rgba(30, 30, 30, 0.9);
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+/* ---Left--- */
+#workspaces {
+    margin-left: 8px;
+    margin-right: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding-left: 8px;
+    padding-right: 4px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+#workspaces button {
+    padding-left: 4px;
+    padding-right: 4px;
+    background: rgba(30, 30, 30, 0.9);
+    color: #ffffff;
+}
+
+#workspaces button:hover {
+    background: rgba(50, 50, 50, 0.9);
+    box-shadow: inherit;
+}
+
+#workspaces button.focused {
+    background-color: rgba(70, 70, 70, 0.9);
+}
+
+#workspaces button.urgent {
+    background-color: #9c525a;
 }
 
 #custom-scratchpad-indicator{
-    padding-left: 4px;
+    margin-left: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding-left: 8px;
     padding-right: 4px;
+}
+
+#window #waybar.hidden {
+    opacity: 0.2;
+}
+
+#mode {
+    background-color: #9c525a;
+}
+
+#clock{
+    margin-right: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+/* ---------- */
+
+/* ---Right--- */
+#custom-keyboard-layout{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding-left: 8px;
+    margin-left: 8px;
+}
+
+#cpu.warning {
+    background-color: #8d7831;
+    color: #ffffff; 
+}
+
+#cpu.critical {
+    background-color: #743a3a;
+    color: #ffffff; 
 }
 
 label:focus {
@@ -121,22 +134,16 @@ label:focus {
 
 #battery.charging {
     color: #ffffff; 
-    background-color: rgb(37, 68, 50);
-}
-
-#cpu.warning {
-    background-color: #8d7831;
-    color: #ffffff; 
-}
-
-#cpu.critical {
-    background-color: #743a3a;
-    color: #ffffff; 
+    background-color: rgba(37, 68, 50, 0.9);
 }
 
 #tray {
-    
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding-right: 8px;
+    margin-right: 8px;
 }
+/* ---------- */
 
 #idle_inhibitor {
     background-color: #2d3436;
@@ -146,50 +153,3 @@ label:focus {
     background-color: #ecf0f1;
     color: #2d3436;
 }
-
-/*
-#battery {
-    background-color: #14161B;
-    color: #ffffff; 
-}
-
-#custom-keyboard-layout {
-    border-bottom: 3px solid #3daee9;
-}
-
-#clock {
-    border-bottom: 3px solid #3daee9;
-}
-
- #cpu {
-    border-bottom: 3px solid #3daee9;
-}
-
-#memory {
-    border-bottom: 3px solid #3daee9;
-}
-
-#network {
-    border-bottom: 3px solid #3daee9;
-}
-
-#network.disconnected {
-    border-bottom: 3px solid #3daee9;
-}
-
-#pulseaudio {
-    border-bottom: 3px solid #3daee9;
-}
-
-#pulseaudio.muted {
-    border-bottom: 3px solid #3daee9;
-}
-
-#temperature {
-    border-bottom: 3px solid #3daee9;
-}
-
-#temperature.critical {
-    background-color: #eb4d4b;
-} 
-*/
