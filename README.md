@@ -26,19 +26,30 @@
 * redshift/redshift-wlr-gamma-control-git - blue light filter
 * blueman/blueman-applet - bluetooth applet
 * clipit - clipboard manager
+* feh - image viewer
+* mpg123 - play sound from terminal
 * awesome font
-* wf-recorder
 * (polkit-gnome-authentication, qt5ct, tlp, tlp-rdw, )
 
 ### Some features
 
-##### Battery indicator:
+#### Scratchpad indicator:
+Shows how much windows is hidden in scratchpad
+* Left mouse click - move to scratchpad
+* Right mouse click - show windows from scratchpad
+
+#### Battery:
+
+##### Beeper
+Plays sound when capacity is equal to 10% or <= 5% every 40 seconds
+
+##### Indicator
 * green - charging
 * default - discharging and capacity > 20%
 * yellow - discharging and 10% < capacity < 20%
 * red, blinking - discharging and capacity < 10%
 
-##### Cpu indicator
+#### Cpu indicator
 * default - normal load
 * yellow - load > 70%
 * red - load > 90%
