@@ -2,8 +2,8 @@
     "layer": "top",
     "position": "top",
     "height": 24,
-    "modules-left": ["sway/workspaces", "custom/scratchpad-indicator", "sway/window", "sway/mode", "clock"],
-    "modules-center": [],
+    "modules-left": ["sway/workspaces", "custom/scratchpad-indicator", "sway/mode", "sway/window"],
+    "modules-center": ["clock"],
     "modules-right": ["custom/keyboard-layout", "pulseaudio", "network", "cpu", "memory", "battery", "tray"],
     
     "sway/window": {

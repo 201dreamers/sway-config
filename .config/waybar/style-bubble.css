@@ -1,4 +1,5 @@
 * {
+    background: none;
     border: none;
     border-radius: 0;
     min-height: 0;
@@ -7,7 +8,6 @@
 }
 
 #waybar {
-    background-color: rgba(30, 30, 30, 0.9);
     color: white;
     font-family: SF Pro Text Regular, Cantarell, Noto Sans, sans-serif;
     font-size: 13px;
@@ -28,14 +28,27 @@
 #tray,
 #mode,
 #idle_inhibitor {
+    background-color: rgba(30, 30, 30, 0.9);
     padding-left: 4px;
     padding-right: 4px;
 }
 
 /* ---Left--- */
+#workspaces {
+    margin-left: 8px;
+    margin-right: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
 #workspaces button {
     padding-left: 4px;
     padding-right: 4px;
+    background: rgba(30, 30, 30, 0.9);
     color: #ffffff;
 }
 
@@ -45,42 +58,58 @@
 }
 
 #workspaces button.focused {
-    background-color: rgba(40, 85, 119, 0.9)/*rgba(70, 70, 70, 0.9)*/;
+    background-color: rgba(70, 70, 70, 0.9);
 }
 
 #workspaces button.urgent {
-    background-color: rgba(156, 82, 90, 0.9);
+    background-color: #9c525a;
 }
 
 #custom-scratchpad-indicator{
     margin-left: 8px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding-left: 8px;
+    padding-right: 4px;
 }
 
 #mode {
-    background-color: rgba(156, 82, 90, 0.9);
+    background-color: #9c525a;
 }
 
 #window {
     margin-right: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
 }
 
 #window #waybar.hidden {
     opacity: 0.2;
 }
+
+#clock{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
 /* ---------- */
 
 /* ---Right--- */
 #custom-keyboard-layout{
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    padding-left: 8px;
     margin-left: 8px;
 }
 
 #cpu.warning {
-    background-color: rgba(141, 120, 49, 0.9);
+    background-color: #8d7831;
     color: #ffffff; 
 }
 
 #cpu.critical {
-    background-color: rgba(116, 58, 58, 0.9);
+    background-color: #743a3a;
     color: #ffffff; 
 }
 
@@ -90,13 +119,13 @@ label:focus {
 
 @keyframes blink {
     to {
-        background-color: rgba(179, 179, 179, 0.9);
+        background-color: #b3b3b3;
         color: #31363b;
     }
 }
 
 #battery.discharging.critical {
-    background-color: rgba(116, 58, 58, 0.9);
+    background-color: #743a3a;
     color: #ffffff; 
     animation-name: blink;
     animation-duration: 0.5s;
@@ -106,7 +135,7 @@ label:focus {
 }
 
 #battery.discharging.warning {
-    background-color: rgba(141, 120, 49, 0.9);
+    background-color: #8d7831;
     color: #ffffff; 
 }
 
@@ -116,15 +145,18 @@ label:focus {
 }
 
 #tray {
-    margin-right: 4px;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    padding-right: 8px;
+    margin-right: 8px;
 }
 /* ---------- */
 
 #idle_inhibitor {
-    background-color: rgba(45, 52, 54, 0.9);
+    background-color: #2d3436;
 }
 
 #idle_inhibitor.activated {
-    background-color: rgba(236, 240, 241, 0.9);
+    background-color: #ecf0f1;
     color: #2d3436;
 }

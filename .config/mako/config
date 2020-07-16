@@ -1,17 +1,18 @@
 ## Default Mako Config
-
 font=SF Pro Text Regular 10
 text-color=#ffffff
-background-color=#292b2eee
+background-color=#1e1e1eee
 border-color=#555555ee
 border-size=2
-border-radius=0
-# width=500
-height=200
+border-radius=2
 padding=10
 
+layer=overlay
 default-timeout=5000
 ignore-timeout=0
+icons=1
+anchor=top-right
+sort=+time
 
 [hidden]
 format=(and %h more)

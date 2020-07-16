@@ -1,0 +1,146 @@
+/* ### manjaro themes
+    
+    # matcha dark sea
+    dark grey #141A1B
+    grey #1B2224
+    green #33B165
+    cyan #2EB398
+    # matcha dark azul
+    dark grey #14161B
+    grey #1B2224
+    blue #3498DB
+    blue darker #4146D1
+    
+    */
+
+/* Reset all styles */
+* {
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/* The whole bar */
+#waybar {
+	
+    background: rgba(30, 30, 30, 0.9)/*#1d1b1b*/;
+    color: white;
+    font-family: SF Pro Text Regular, Cantarell, Noto Sans, sans-serif;
+    font-size: 13px;
+}
+
+#window {
+    padding-left: 4px;
+    padding-right: 4px;
+    margin: 0 4px;
+}
+
+#window #waybar.hidden {
+    opacity: 0.2;
+}
+
+
+#workspaces button {
+    /* To compensate for the top border and still have vertical centering */
+    padding-bottom: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    color: #888888;
+}
+
+#workspaces button.focused {
+    /* border-bottom: 3px solid #3daee9; 
+    border-color: #3daee9; */
+    color: white;
+    background-color: #285577/*#285577*/;
+}
+
+#workspaces button.urgent {
+    /* border-color: #9c525a; */
+    color: #9c525a;
+}
+
+#mode {
+    background-color: #9c525a/*#64727D*/;
+    /* border-bottom: 3px solid #ffffff; */
+    font-size: 14px;
+    
+}
+#custom-scratchpad-indicator,
+#custom-keyboard-layout,
+#custom-weather,
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#tray,
+#mode,
+#idle_inhibitor {
+    padding-left: 2px;
+    padding-right: 2px;
+    margin: 0 4px;
+}
+
+#custom-scratchpad-indicator{
+    padding-left: 4px;
+    padding-right: 4px;
+}
+
+label:focus {
+    background-color: #000000;
+}
+
+@keyframes blink {
+    to {
+        background-color: #b3b3b3;
+        color: #31363b;
+    }
+}
+
+#battery.discharging.critical {
+    background-color: #743a3a;
+    color: #ffffff; 
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+#battery.discharging.warning {
+    background-color: #8d7831;
+    color: #ffffff; 
+}
+
+#battery.charging {
+    color: #ffffff; 
+    background-color: rgb(37, 68, 50);
+}
+
+#cpu.warning {
+    background-color: #8d7831;
+    color: #ffffff; 
+}
+
+#cpu.critical {
+    background-color: #743a3a;
+    color: #ffffff; 
+}
+
+#tray {
+    
+}
+
+#idle_inhibitor {
+    background-color: #2d3436;
+}
+
+#idle_inhibitor.activated {
+    background-color: #ecf0f1;
+    color: #2d3436;
+}
