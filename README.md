@@ -1,13 +1,13 @@
 # Dotfiles for sway wm configuration
 
 ### Screenshots of my sway configuration
+![Screenshot 7](./screenshots/screenshot-7.png "Screenshot 7")
+
 ![Screenshot 6](./screenshots/screenshot-6.png "Screenshot 6")
 
 ![Screenshot 4	](./screenshots/screenshot-4.png "Screenshot 4")
 
 ![Screenshot 1](./screenshots/screenshot-1.png "Screenshot 1")
-
-![Screenshot 3](./screenshots/screenshot-3.png "Screenshot 3")
 
 ### Used packages:
 * wofi - menu launcher
