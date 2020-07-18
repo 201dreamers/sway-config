@@ -4,8 +4,8 @@ text-color=#ffffff
 background-color=#1e1e1eee
 border-color=#555555ee
 border-size=2
-border-radius=2
-padding=10
+border-radius=4
+padding=5
 
 layer=overlay
 default-timeout=5000

@@ -51,5 +51,6 @@ window {
 }
 
 #selected {
-    background-color: rgb(40, 85, 119);
+    border: 0px solid #000000;
+    background-color: rgb(223, 74, 22);
 }

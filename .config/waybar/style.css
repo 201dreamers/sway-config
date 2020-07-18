@@ -4,10 +4,11 @@
     min-height: 0;
     margin: 0;
     padding: 0;
+    font-weight: normal;
 }
 
 #waybar {
-    background-color: rgba(30, 30, 30, 0.9);
+    background-color: rgba(17, 19, 13, 0.9);
     color: white;
     font-family: SF Pro Text Regular, Cantarell, Noto Sans, sans-serif;
     font-size: 13px;
@@ -32,6 +33,24 @@
     padding-right: 4px;
 }
 
+#window,
+#workspaces button.focused,
+#custom-scratchpad-indicator,
+#custom-keyboard-layout,
+#custom-weather,
+#clock,
+#battery,
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#tray,
+#mode,
+#idle_inhibitor {
+    border-top: 2px solid;
+}
+
 /* ---Left--- */
 #workspaces button {
     padding-left: 4px;
@@ -40,16 +59,24 @@
 }
 
 #workspaces button:hover {
-    background: rgba(50, 50, 50, 0.9);
+    background: rgba(41, 53, 59, 0.9);
     box-shadow: inherit;
 }
 
 #workspaces button.focused {
-    background-color: rgba(40, 85, 119, 0.9)/*rgba(70, 70, 70, 0.9)*/;
+    border-top-color: #df4a16;
+    background-color: rgba(41, 53, 59, 0.9)/*rgba(40, 85, 119, 0.9)*/;
 }
 
 #workspaces button.urgent {
     background-color: rgba(156, 82, 90, 0.9);
+}
+
+#window,
+#custom-scratchpad-indicator,
+#mode,
+#window{
+    border-top-color: #00c29b;
 }
 
 #custom-scratchpad-indicator{
@@ -69,19 +96,20 @@
 }
 /* ---------- */
 
+#clock {
+    border-top-color: #4053a3;
+}
+
 /* ---Right--- */
+#custom-keyboard-layout,
+#pulseaudio,
+#network,
+#battery {
+    border-top-color: #752c4e;
+}
+
 #custom-keyboard-layout{
     margin-left: 8px;
-}
-
-#cpu.warning {
-    background-color: rgba(141, 120, 49, 0.9);
-    color: #ffffff; 
-}
-
-#cpu.critical {
-    background-color: rgba(116, 58, 58, 0.9);
-    color: #ffffff; 
 }
 
 label:focus {
@@ -115,8 +143,24 @@ label:focus {
     background-color: rgba(37, 68, 50, 0.9);
 }
 
+#cpu,
+#memory {
+    border-top-color: #0c6d1a;
+}
+
+#cpu.warning {
+    background-color: rgba(141, 120, 49, 0.9);
+    color: #ffffff; 
+}
+
+#cpu.critical {
+    background-color: rgba(116, 58, 58, 0.9);
+    color: #ffffff; 
+}
+
 #tray {
-    margin-right: 4px;
+    border-top-color: #991121;
+    margin-right: 2px;
 }
 /* ---------- */
 
