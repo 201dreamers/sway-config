@@ -3,11 +3,7 @@
 ### Screenshots of my sway configuration
 ![Screenshot 7](./screenshots/screenshot-7.png "Screenshot 7")
 
-![Screenshot 6](./screenshots/screenshot-6.png "Screenshot 6")
-
-![Screenshot 4	](./screenshots/screenshot-4.png "Screenshot 4")
-
-![Screenshot 1](./screenshots/screenshot-1.png "Screenshot 1")
+![Screenshot 8](./screenshots/screenshot-8.png "Screenshot 8")
 
 ### Used packages:
 * wofi - menu launcher
@@ -21,13 +17,14 @@
 * nm-applet/network-manager-applet-indicator - wifi applet
 * mako - nitification manager
 * earlyoom - out of memory manager
-* redshift/redshift-wlr-gamma-control-git - blue light filter
+* redshift/redshift-wayland - blue light filter
 * blueman/blueman-applet - bluetooth applet
-* clipit - clipboard manager
-* feh - image viewer
+* parcellite - clipboard manager
+* gthumb - image viewer
+* nautilus - file manager
 * mpg123 - play sound from terminal
 * awesome font
-* (polkit-gnome-authentication, qt5ct, tlp, tlp-rdw, )
+* (polkit-gnome-authentication, qt5ct, tlp, tlp-rdw)
 
 ### Some features
 
@@ -52,5 +49,25 @@ Plays sound when capacity <= 10% every 60 seconds
 * yellow - load > 70%
 * red - load > 90%
 
-### Shortcuts
+### Shortcuts ($mod = Super/Windows logo key on keyboard)
+* $mod+Shift+r - reload
+* $mod+Return - start terminal
+* $mod+q - kill
+* $mod+a - start applications menu
+* $mod+b - start alternative terminal menu
+* $mod+d - start run menu
+* $mod+w - start browser
+* $mod+e - start file manager
+* $mod+0 - lock screen
+* $mod+p - pick color
+* Print - Take a screenshot of whole screen and copy it to clipboard
+* $mod+Print - Take a screenshot of selected region and copy it to clipboard
+* $mod+Shift+Print - Take a screenshot of focused window and copy it to clipboard
+* Ctrl+Print - Take a screenshot of whole screen and copy to $HOME/Pictures/screenshots (You should create this folder)
+* $mod+Ctrl+Print - Take a screenshot of selected region and copy to $HOME/Pictures/screenshots
+* $mod+Ctrl+Shift+Print - Take a screenshot of focused window and copy to $HOME/Pictures/screenshots
+* $mod+$left - focus left
+* $mod+$down - focus down
+* $mod+$up - focus up
+* $mod+$right - focus right
 * Soon

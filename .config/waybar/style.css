@@ -8,10 +8,10 @@
 }
 
 #waybar {
-    background-color: rgba(17, 19, 13, 0.9);
+    background-color: rgba(19, 13, 13, 0.7);
     color: white;
     font-family: SF Pro Text Regular, Cantarell, Noto Sans, sans-serif;
-    font-size: 13px;
+    font-size: 9.5pt;
 }
 
 #window,
@@ -65,7 +65,7 @@
 
 #workspaces button.focused {
     border-top-color: #df4a16;
-    background-color: rgba(41, 53, 59, 0.9)/*rgba(40, 85, 119, 0.9)*/;
+    background-color: rgba(41, 53, 59, 0.9);
 }
 
 #workspaces button.urgent {
@@ -76,7 +76,7 @@
 #custom-scratchpad-indicator,
 #mode,
 #window{
-    border-top-color: #00c29b;
+    border-top-color: #0c6d1a;
 }
 
 #custom-scratchpad-indicator{
@@ -172,3 +172,9 @@ label:focus {
     background-color: rgba(236, 240, 241, 0.9);
     color: #2d3436;
 }
+
+#custom-separator {
+    color: #89a0ff;
+    margin: 0 3px;
+}
+  
