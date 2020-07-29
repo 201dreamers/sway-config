@@ -6,6 +6,8 @@ border-color=#555555ee
 border-size=2
 border-radius=4
 padding=5
+height=200
+width=300
 
 layer=overlay
 default-timeout=5000

@@ -1,9 +1,9 @@
 {
     "layer": "top",
     "position": "bottom",
-    "height": 26,
-    "modules-left": ["sway/workspaces", "custom/scratchpad-indicator", "sway/mode", "sway/window"],
-    "modules-center": ["clock"],
+    "height": 24,
+    "modules-left": ["sway/workspaces", "custom/scratchpad-indicator", "custom/separator", "clock"],
+    "modules-center": ["sway/mode"],
     "modules-right": ["custom/keyboard-layout", "pulseaudio", "network", "battery", "custom/separator", "cpu", "memory", "custom/separator", "tray"],
     
     "sway/window": {
@@ -34,7 +34,7 @@
         "all-outputs": true,
         "format": "{name}: {icon}",
         "format-icons": {
-            "1": "",
+            "1": "",
             "2": "",
             "3": "",
             "4": "",

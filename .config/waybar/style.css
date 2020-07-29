@@ -5,10 +5,11 @@
     margin: 0;
     padding: 0;
     font-weight: normal;
+    font-size: 9.5pt;
 }
 
 #waybar {
-    background-color: rgba(19, 13, 13, 0.7);
+    background-color: rgba(19, 13, 13, 0.5);
     color: white;
     font-family: SF Pro Text Regular, Cantarell, Noto Sans, sans-serif;
     font-size: 9.5pt;
@@ -33,12 +34,8 @@
     padding-right: 4px;
 }
 
-#window,
 #workspaces button.focused,
-#custom-scratchpad-indicator,
 #custom-keyboard-layout,
-#custom-weather,
-#clock,
 #battery,
 #cpu,
 #memory,
@@ -46,9 +43,8 @@
 #network,
 #pulseaudio,
 #tray,
-#mode,
 #idle_inhibitor {
-    border-top: 2px solid;
+    border-bottom: 2.5px solid;
 }
 
 /* ---Left--- */
@@ -59,32 +55,30 @@
 }
 
 #workspaces button:hover {
-    background: rgba(41, 53, 59, 0.9);
+    background: rgb(61, 56, 56);
     box-shadow: inherit;
 }
 
 #workspaces button.focused {
-    border-top-color: #df4a16;
-    background-color: rgba(41, 53, 59, 0.9);
+    border-bottom-color: #df4a16;
+    background-color: rgb(61, 56, 56);
 }
 
 #workspaces button.urgent {
-    background-color: rgba(156, 82, 90, 0.9);
+    background-color: rgb(90, 50, 54);
 }
 
-#window,
-#custom-scratchpad-indicator,
-#mode,
-#window{
-    border-top-color: #0c6d1a;
-}
+/* #custom-scratchpad-indicator,
+#window {
+    border-bottom-color: #0c6d1a;
+} */
 
 #custom-scratchpad-indicator{
     margin-left: 8px;
 }
 
 #mode {
-    background-color: rgba(156, 82, 90, 0.9);
+    background-color: rgb(90, 50, 54);
 }
 
 #window {
@@ -96,16 +90,17 @@
 }
 /* ---------- */
 
+/* #mode,
 #clock {
-    border-top-color: #4053a3;
-}
+   border-bottom-color: #4053a3;
+} */
 
 /* ---Right--- */
 #custom-keyboard-layout,
 #pulseaudio,
 #network,
 #battery {
-    border-top-color: #752c4e;
+    border-bottom-color: #752c4e;
 }
 
 #custom-keyboard-layout{
@@ -118,13 +113,13 @@ label:focus {
 
 @keyframes blink {
     to {
-        background-color: rgba(179, 179, 179, 0.9);
+        background-color: rgb(179, 179, 179);
         color: #31363b;
     }
 }
 
 #battery.discharging.critical {
-    background-color: rgba(116, 58, 58, 0.9);
+    background-color: rgb(116, 58, 58);
     color: #ffffff; 
     animation-name: blink;
     animation-duration: 0.5s;
@@ -134,47 +129,46 @@ label:focus {
 }
 
 #battery.discharging.warning {
-    background-color: rgba(141, 120, 49, 0.9);
+    background-color: rgb(141, 120, 49);
     color: #ffffff; 
 }
 
 #battery.charging {
     color: #ffffff; 
-    background-color: rgba(37, 68, 50, 0.9);
+    background-color: rgb(37, 68, 50);
 }
 
 #cpu,
 #memory {
-    border-top-color: #0c6d1a;
+    border-bottom-color: #0c6d1a;
 }
 
 #cpu.warning {
-    background-color: rgba(141, 120, 49, 0.9);
+    background-color: rgb(141, 120, 49);
     color: #ffffff; 
 }
 
 #cpu.critical {
-    background-color: rgba(116, 58, 58, 0.9);
+    background-color: rgb(116, 58, 58);
     color: #ffffff; 
 }
 
 #tray {
-    border-top-color: #991121;
+    border-bottom-color: #991121;
     margin-right: 2px;
 }
 /* ---------- */
 
 #idle_inhibitor {
-    background-color: rgba(45, 52, 54, 0.9);
+    background-color: rgb(45, 52, 54);
 }
 
 #idle_inhibitor.activated {
-    background-color: rgba(236, 240, 241, 0.9);
+    background-color: rgb(236, 240, 241);
     color: #2d3436;
 }
 
 #custom-separator {
-    color: #89a0ff;
+    color: rgba(19, 13, 13, 0.0);
     margin: 0 3px;
 }
-  

@@ -76,45 +76,42 @@ floating_modifier $mod normal
 ### Window rules ###
 
 # Link some programs to workspaces (swaymsg -t get_tree)
-assign [class="firefox"] workspace 1
+assign [class="Opera"] workspace 1
 assign [app_id="telegramdesktop"] workspace 7
-
+for_window [class="Opera"] inhibit_idle fullscreen
+for_window [class="feh"] floating enable
 for_window [window_role="pop-up"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="dialog"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [app_id="lximage-qt"] floating enable
-
-for_window [class="firefox"] inhibit_idle fullscreen
-for_window [class="feh"] floating enable
-
-# for_window [title="alsamixer"] floating enable border pixel 1
-# for_window [class="calamares"] floating enable border normal
-# for_window [class="Clipgrab"] floating enable
-# for_window [title="File Transfer*"] floating enable
-# for_window [class="fpakman"] floating enable
-# for_window [class="Galculator"] floating enable border pixel 1
-# for_window [class="GParted"] floating enable border normal
-# for_window [title="i3_help"] floating enable sticky enable border normal
-# for_window [class="Lightdm-settings"] floating enable
-# for_window [class="Lxappearance"] floating enable sticky enable border normal
-# for_window [class="Manjaro-hello"] floating enable
-# for_window [class="Manjaro Settings Manager"] floating enable border normal
-# for_window [title="MuseScore: Play Panel"] floating enable
-# for_window [class="Nitrogen"] floating enable sticky enable border normal
-# for_window [class="Oblogout"] fullscreen enable
-# for_window [class="octopi"] floating enable
-# for_window [title="About Pale Moon"] floating enable
-# for_window [class="Pamac-manager"] floating enable
-# for_window [class="Pavucontrol"] floating enable
-# for_window [class="qt5ct"] floating enable sticky enable border normal
-# for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
-# for_window [class="Simple-scan"] floating enable border normal
-# for_window [class="(?i)System-config-printer.py"] floating enable border normal
-# for_window [class="Skype"] floating enable border normal
-# for_window [class="Timeset-gui"] floating enable border normal
-# for_window [class="(?i)virtualbox"] floating enable border normal
-# for_window [class="Xfburn"] floating enable
+for_window [title="alsamixer"] floating enable border pixel 1
+for_window [class="calamares"] floating enable border normal
+for_window [class="Clipgrab"] floating enable
+for_window [title="File Transfer*"] floating enable
+for_window [class="fpakman"] floating enable
+for_window [class="Galculator"] floating enable border pixel 1
+for_window [class="GParted"] floating enable border normal
+for_window [title="i3_help"] floating enable sticky enable border normal
+for_window [class="Lightdm-settings"] floating enable
+for_window [class="Lxappearance"] floating enable sticky enable border normal
+for_window [class="Manjaro-hello"] floating enable
+for_window [class="Manjaro Settings Manager"] floating enable border normal
+for_window [title="MuseScore: Play Panel"] floating enable
+for_window [class="Nitrogen"] floating enable sticky enable border normal
+for_window [class="Oblogout"] fullscreen enable
+for_window [class="octopi"] floating enable
+for_window [title="About Pale Moon"] floating enable
+for_window [class="Pamac-manager"] floating enable
+for_window [class="Pavucontrol"] floating enable
+for_window [class="qt5ct"] floating enable sticky enable border normal
+for_window [class="Qtconfig-qt4"] floating enable sticky enable border normal
+for_window [class="Simple-scan"] floating enable border normal
+for_window [class="(?i)System-config-printer.py"] floating enable border normal
+for_window [class="Skype"] floating enable border normal
+for_window [class="Timeset-gui"] floating enable border normal
+for_window [class="(?i)virtualbox"] floating enable border normal
+for_window [class="Xfburn"] floating enable
 
 ### Key bindings ###
 
@@ -290,7 +287,7 @@ bindsym --to-code $mod+r mode "resize"
 bindsym --to-code $mod+Shift+s sticky toggle
 
 # Exit sway (logs you out of your Wayland session)
-bindsym --to-code $mod+Delete exec swaynag -t mtype -m \
+bindsym --to-code $mod+Shift+e exec swaynag -t mtype -m \
     'You pressed the exit shortcut. What do you want?' \
     -b 'Poweroff' 'systemctl poweroff' \
     -b 'Reboot' 'systemctl reboot' \
@@ -298,7 +295,7 @@ bindsym --to-code $mod+Delete exec swaynag -t mtype -m \
     -b 'Logout' 'swaymsg exit'
 
 # Shutdown/Logout menu
-    set $mode_system System (l) lock, (e) exit, (s) suspend, (r) reboot, (Shift+s) Shutdown
+    set $mode_system System (l) lock, (e) logout, (s) suspend,R (r) reboot, (Shift+s) shutdown
     mode "$mode_system" {
         bindsym l exec $locker, mode "default"
         bindsym e exec swaymsg exit, mode "default"
@@ -311,48 +308,34 @@ bindsym --to-code $mod+Delete exec swaynag -t mtype -m \
         bindsym Escape mode "default"
     }
 
-    bindsym $mod+Shift+e mode "$mode_system"
+    bindsym $mod+Delete mode "$mode_system"
 
 
 ### Status bar ###
 
-bar {
-   swaybar_command waybar
-}
-
 # bar {
-#     position bottom
-
-#     # When the status_command prints a new line to stdout, swaybar updates.
-#     # The default just shows the current date and time.
-#     status_command while date +'%Y-%m-%d %l:%M:%S %p'; do sleep 1; done
-
-#     colors {
-#         statusline #ffffff
-#         background #323232
-#         inactive_workspace #32323200 #32323200 #5c5c5c
-#     }
+#    swaybar_command waybar
 # }
 
 ### Autostart ### (to fix time - timedatectl set-ntp true)
 
-exec killall /usr/bin/earlyoom
-exec sh -c "/usr/bin/earlyoom -r 0 -m 2,1 --prefer '^Web Content$' --avoid '^(sway|waybar|pacman|packagekitd|gnome-shell|gnome-session-c|gnome-session-b|lightdm|sddm|sddm-helper|gdm|gdm-wayland-ses|gdm-session-wor|gdm-x-session|Xorg|Xwayland|systemd|systemd-logind|dbus-daemon|dbus-broker|cinnamon|cinnamon-sessio|kwin_x11|kwin_wayland|plasmashell|ksmserver|plasma_session|startplasma-way|xfce4-session|mate-session|marco|lxqt-session|openbox)'"
-exec sleep 5
-exec --no-startup-id blueman-applet
-exec --no-startup-id parcellite
-exec --no-startup-id sh -c "pulseaudio --daemonize"
-exec --no-startup-id /usr/bin/nm-applet --indicator
-exec --no-startup-id /usr/bin/redshift
-exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
-exec mako
-exec ~/.azotebg
-exec ~/.config/sway/modules/critical_battery_beeper/critical_battery_beeper.py
-exec swayidle -w \
-    timeout 7200 'swaylock-fancy' \
-    timeout 7400 'swaymsg "output * dpms off"' \
-    resume 'swaymsg "output * dpms on"' \
-    before-sleep 'swaylock-fancy'
+# exec killall /usr/bin/earlyoom
+# exec sh -c "/usr/bin/earlyoom -r 0 -m 2,1 --prefer '^Web Content$' --avoid '^(sway|waybar|pacman|packagekitd|gnome-shell|gnome-session-c|gnome-session-b|lightdm|sddm|sddm-helper|gdm|gdm-wayland-ses|gdm-session-wor|gdm-x-session|Xorg|Xwayland|systemd|systemd-logind|dbus-daemon|dbus-broker|cinnamon|cinnamon-sessio|kwin_x11|kwin_wayland|plasmashell|ksmserver|plasma_session|startplasma-way|xfce4-session|mate-session|marco|lxqt-session|openbox)'"
+# exec sleep 5
+# exec --no-startup-id blueman-applet
+# exec --no-startup-id parcellite
+# exec --no-startup-id sh -c "pulseaudio --daemonize"
+# exec --no-startup-id /usr/bin/nm-applet --indicator
+# exec --no-startup-id /usr/bin/redshift
+# exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+# exec mako
+# exec ~/.azotebg
+# exec ~/.config/sway/modules/critical_battery_beeper/critical_battery_beeper.py
+# exec swayidle -w \
+#     timeout 7200 'swaylock-fancy' \
+#     timeout 7400 'swaymsg "output * dpms off"' \
+#     resume 'swaymsg "output * dpms on"' \
+#     before-sleep 'swaylock-fancy'
 
 # exec_always --no-startup-id ff-theme-util
 # exec_always --no-startup-id fix_xcursor
