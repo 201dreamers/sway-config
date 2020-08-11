@@ -17,6 +17,7 @@
 
 #window,
 #workspaces,
+#backlight,
 #custom-scratchpad-indicator,
 #custom-keyboard-layout,
 #custom-weather,
@@ -35,6 +36,7 @@
 }
 
 #workspaces button.focused,
+#backlight,
 #custom-keyboard-layout,
 #battery,
 #cpu,
@@ -42,8 +44,7 @@
 #temperature,
 #network,
 #pulseaudio,
-#tray,
-#idle_inhibitor {
+#trayR {
     border-bottom: 2.5px solid;
 }
 
@@ -68,35 +69,24 @@
     background-color: rgb(90, 50, 54);
 }
 
-/* #custom-scratchpad-indicator,
-#window {
-    border-bottom-color: #0c6d1a;
-} */
-
 #custom-scratchpad-indicator{
     margin-left: 8px;
 }
 
-#mode {
-    background-color: rgb(90, 50, 54);
-}
-
-#window {
-    margin-right: 8px;
-}
-
-#window #waybar.hidden {
-    opacity: 0.2;
+#idle_inhibitor.activated {
+    background-color: rgb(45, 52, 54);
 }
 /* ---------- */
 
-/* #mode,
-#clock {
-   border-bottom-color: #4053a3;
-} */
+/* ---Center--- */
+#mode {
+    background-color: rgb(90, 50, 54);
+}
+/* ---------- */
 
 /* ---Right--- */
 #custom-keyboard-layout,
+#backlight,
 #pulseaudio,
 #network,
 #battery {
@@ -159,16 +149,15 @@ label:focus {
 }
 /* ---------- */
 
-#idle_inhibitor {
-    background-color: rgb(45, 52, 54);
-}
-
-#idle_inhibitor.activated {
-    background-color: rgb(236, 240, 241);
-    color: #2d3436;
-}
-
 #custom-separator {
     color: rgba(19, 13, 13, 0.0);
     margin: 0 3px;
+}
+
+#window {
+    margin-right: 8px;
+}
+
+#window #waybar.hidden {
+    opacity: 0.2;
 }

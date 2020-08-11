@@ -2,13 +2,27 @@
     "layer": "top",
     "position": "bottom",
     "height": 24,
-    "modules-left": ["sway/workspaces", "custom/scratchpad-indicator", "custom/separator", "clock"],
+    "modules-left": ["sway/workspaces", "custom/scratchpad-indicator", "custom/separator", "clock", "idle_inhibitor"],
     "modules-center": ["sway/mode"],
-    "modules-right": ["custom/keyboard-layout", "pulseaudio", "network", "battery", "custom/separator", "cpu", "memory", "custom/separator", "tray"],
+    "modules-right": ["custom/keyboard-layout", "pulseaudio", "backlight", "battery", "custom/separator", "cpu", "memory", "custom/separator", "tray"],
     
+	"idle_inhibitor": {
+		"format": "{icon}",
+		"format-icons": {
+			"activated": "",
+			"deactivated": ""
+		}
+	},
+
     "sway/window": {
         "max-length": 50
     },
+	
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "{percent}% {icon}",
+		"format-icons": ["", ""]
+	},
 
     "custom/separator": {
         "format": "|",

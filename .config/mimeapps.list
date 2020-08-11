@@ -15,6 +15,7 @@ application/x-extension-html=firefox.desktop;
 application/x-extension-shtml=firefox.desktop;
 application/x-extension-xhtml=firefox.desktop;
 application/x-extension-xht=firefox.desktop;
+text/x-python=org.gnome.gedit.desktop;
 
 [Default Applications]
 x-scheme-handler/http=firefox.desktop

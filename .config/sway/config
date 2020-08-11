@@ -25,7 +25,7 @@ set $locker swaylock-fancy
 set $term xfce4-terminal
 
 # Application launcher
-set $menu wofi 
+set $menu j4-dmenu-desktop --dmenu='bemenu -iwbn -p "Run:" --fn "SF Pro Text Regular 10" --tb="#222222" --tf="#cb4b16" --hb="#222222" --hf="#cb4b16" --nb="#111111"  ' --term='xfce4-terminal'
 
 # File manager
 set $filer nautilus
@@ -37,6 +37,8 @@ set $browser firefox
 set $gnomeschema org.gnome.desktop.interface
 
 ### Settings ###
+
+# Monitors
 
 # Font
 font pango: SF Pro Text 10
@@ -76,7 +78,7 @@ floating_modifier $mod normal
 ### Window rules ###
 
 # Link some programs to workspaces (swaymsg -t get_tree)
-assign [class="firefox"] workspace 1
+assign [app_id="firefox"] workspace 1
 assign [app_id="telegramdesktop"] workspace 7
 
 for_window [window_role="pop-up"] floating enable
@@ -85,7 +87,7 @@ for_window [window_role="dialog"] floating enable
 for_window [window_type="dialog"] floating enable
 for_window [app_id="lximage-qt"] floating enable
 
-for_window [class="firefox"] inhibit_idle fullscreen
+for_window [app_id="firefox"] inhibit_idle fullscreen
 for_window [class="feh"] floating enable
 
 # for_window [title="alsamixer"] floating enable border pixel 1
@@ -128,7 +130,7 @@ bindsym --to-code $mod+Return exec $term
 bindsym --to-code $mod+q kill
 
 # Start your launcher
-bindsym --to-code $mod+d exec $menu --show run --allow-images
+bindsym --to-code $mod+d exec bemenu-run -iwbn -p "Run:" --fn "SF Pro Text Regular 10" --tb="#222222" --tf="#cb4b16" --hb="#222222" --hf="#cb4b16" --nb="#111111"
 
 bindsym --to-code $mod+b exec $term -e 'bmenu'
 
@@ -137,6 +139,8 @@ bindsym --to-code $mod+n exec $term -e nmtui-connect
 
 # Launch categorized menu
 bindsym --to-code $mod+a exec --no-startup-id $menu
+
+bindsym --to-code $mod+z exec wofi
 
 # Start browser
 bindsym --to-code $mod+w exec $browser
@@ -340,17 +344,19 @@ exec killall /usr/bin/earlyoom
 exec sh -c "/usr/bin/earlyoom -r 0 -m 2,1 --prefer '^Web Content$' --avoid '^(sway|waybar|pacman|packagekitd|gnome-shell|gnome-session-c|gnome-session-b|lightdm|sddm|sddm-helper|gdm|gdm-wayland-ses|gdm-session-wor|gdm-x-session|Xorg|Xwayland|systemd|systemd-logind|dbus-daemon|dbus-broker|cinnamon|cinnamon-sessio|kwin_x11|kwin_wayland|plasmashell|ksmserver|plasma_session|startplasma-way|xfce4-session|mate-session|marco|lxqt-session|openbox)'"
 exec sleep 5
 exec --no-startup-id blueman-applet
-exec --no-startup-id parcellite
-exec --no-startup-id sh -c "pulseaudio --daemonize"
+exec_always killall pulseaudio
+exec_always sh -c "pulseaudio --daemonize"
+exec pa-applet
+exec pamac-tray
 exec --no-startup-id /usr/bin/nm-applet --indicator
 exec --no-startup-id /usr/bin/redshift
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 exec mako
 exec ~/.azotebg
-exec ~/.config/sway/modules/critical_battery_beeper/critical_battery_beeper.py
+exec ~/.config/sway/modules/critical_battery_beeper/criticalBatteryBeeper
 exec swayidle -w \
-    timeout 7200 'swaylock-fancy' \
-    timeout 7400 'swaymsg "output * dpms off"' \
+    timeout 1200 'swaylock-fancy' \
+    timeout 1300 'swaymsg "output * dpms off"' \
     resume 'swaymsg "output * dpms on"' \
     before-sleep 'swaylock-fancy'
 
